@@ -38,11 +38,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UINavigationBarDelegate {
         var tabBarController = UITabBarController()
 
         tabBarController.viewControllers = [tabViewController1! , tabViewController2!, tabViewController3! , tabViewController4!, tabViewController5!]
-
+        tabBarController.tabBar.tintColor = UIColor.goldColor()
+        tabBarController.tabBar.barTintColor = UIColor.nightColor()
+        tabBarController.tabBar.backgroundColor = UIColor.whiteColor()
         
         //adding all five views to the TabBarView
         var item1 = UITabBarItem(title: " ", image: nil, tag: 0)
-        item1.image = UIImage.fontAwesomeIconWithName(.NewspaperO, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
+        item1.image = UIImage.fontAwesomeIconWithName(.Bullhorn, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
         var item2 = UITabBarItem(title: " ", image: nil, tag: 1)
         item2.image = UIImage.fontAwesomeIconWithName(.ShoppingCart, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
         var item3 = UITabBarItem(title: " ", image: nil, tag: 2)
@@ -50,8 +52,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UINavigationBarDelegate {
         var item4 = UITabBarItem(title: " ", image: nil, tag: 3)
         item4.image = UIImage.fontAwesomeIconWithName(.Star, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
         var item5 = UITabBarItem(title: " ", image: nil, tag: 4)
-        item5.image = UIImage.fontAwesomeIconWithName(.Shirtsinbulk, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
+        item5.image = UIImage.fontAwesomeIconWithName(.ShoppingBag, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
 
+        item1.imageInsets = UIEdgeInsetsMake(4, 0, -4, 0);
+        item2.imageInsets = UIEdgeInsetsMake(4, 0, -4, 0);
+        item3.imageInsets = UIEdgeInsetsMake(4, 0, -4, 0);
+        item4.imageInsets = UIEdgeInsetsMake(4, 0, -4, 0);
+        item5.imageInsets = UIEdgeInsetsMake(4, 0, -4, 0);
+        
         tabViewController1?.tabBarItem = item1
         tabViewController2?.tabBarItem = item2
         tabViewController3?.tabBarItem = item3

@@ -21,6 +21,13 @@
 		2A9156321CB7464700B3570C /* construction.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A9156311CB7464700B3570C /* construction.png */; };
 		2AA95C221CB4AB7700B66C7E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA95C211CB4AB7700B66C7E /* UIColor.swift */; };
 		2AD2E4911CB864070036F493 /* CatalogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD2E4901CB864070036F493 /* CatalogCell.swift */; };
+		B651C3B71CB945560041DF2C /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B651C3B61CB945560041DF2C /* NewsCell.swift */; };
+		B651C3BD1CB94A2B0041DF2C /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = B651C3BC1CB94A2B0041DF2C /* Article.swift */; };
+		B651C3C11CB9600B0041DF2C /* shoes3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B651C3BE1CB9600B0041DF2C /* shoes3.jpg */; };
+		B651C3C21CB9600B0041DF2C /* shoes2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B651C3BF1CB9600B0041DF2C /* shoes2.jpg */; };
+		B651C3C31CB9600B0041DF2C /* shoes1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B651C3C01CB9600B0041DF2C /* shoes1.jpg */; };
+		B69D23B61CB96FC200227272 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69D23B51CB96FC200227272 /* NavigationController.swift */; };
+		B69D23B81CB9F22600227272 /* shoes4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B69D23B71CB9F22600227272 /* shoes4.jpg */; };
 		B6BF753B1CAE050D0002C477 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BF753A1CAE050D0002C477 /* AppDelegate.swift */; };
 		B6BF75421CAE050D0002C477 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6BF75401CAE050D0002C477 /* Main.storyboard */; };
 		B6BF75441CAE050D0002C477 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6BF75431CAE050D0002C477 /* Assets.xcassets */; };
@@ -43,6 +50,13 @@
 		2A9156311CB7464700B3570C /* construction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = construction.png; path = Images/construction.png; sourceTree = "<group>"; };
 		2AA95C211CB4AB7700B66C7E /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		2AD2E4901CB864070036F493 /* CatalogCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalogCell.swift; sourceTree = "<group>"; };
+		B651C3B61CB945560041DF2C /* NewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		B651C3BC1CB94A2B0041DF2C /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		B651C3BE1CB9600B0041DF2C /* shoes3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = shoes3.jpg; sourceTree = "<group>"; };
+		B651C3BF1CB9600B0041DF2C /* shoes2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = shoes2.jpg; sourceTree = "<group>"; };
+		B651C3C01CB9600B0041DF2C /* shoes1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = shoes1.jpg; sourceTree = "<group>"; };
+		B69D23B51CB96FC200227272 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		B69D23B71CB9F22600227272 /* shoes4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = shoes4.jpg; sourceTree = "<group>"; };
 		B6BF75371CAE050D0002C477 /* Foamlife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foamlife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6BF753A1CAE050D0002C477 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6BF75411CAE050D0002C477 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -65,6 +79,10 @@
 		2A8EF77A1CB34890001D8A26 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B69D23B71CB9F22600227272 /* shoes4.jpg */,
+				B651C3BE1CB9600B0041DF2C /* shoes3.jpg */,
+				B651C3BF1CB9600B0041DF2C /* shoes2.jpg */,
+				B651C3C01CB9600B0041DF2C /* shoes1.jpg */,
 				2A9156311CB7464700B3570C /* construction.png */,
 			);
 			name = Images;
@@ -79,6 +97,7 @@
 				2A8EF7821CB350A4001D8A26 /* ShoeController.swift */,
 				2A8EF7841CB3510F001D8A26 /* SettingsController.swift */,
 				2A8EF7861CB35122001D8A26 /* ClothingController.swift */,
+				B69D23B51CB96FC200227272 /* NavigationController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -114,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				2A91562F1CB60A5F00B3570C /* Configuration.swift */,
+				B651C3BC1CB94A2B0041DF2C /* Article.swift */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -130,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				2AD2E4901CB864070036F493 /* CatalogCell.swift */,
+				B651C3B61CB945560041DF2C /* NewsCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -201,6 +222,7 @@
 				TargetAttributes = {
 					B6BF75361CAE050D0002C477 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = HCQ2A438C7;
 					};
 				};
 			};
@@ -230,8 +252,12 @@
 				2A9156321CB7464700B3570C /* construction.png in Resources */,
 				B6BF75471CAE050D0002C477 /* LaunchScreen.storyboard in Resources */,
 				2A9156291CB605E500B3570C /* FontAwesome.otf in Resources */,
+				B69D23B81CB9F22600227272 /* shoes4.jpg in Resources */,
 				B6BF75441CAE050D0002C477 /* Assets.xcassets in Resources */,
+				B651C3C31CB9600B0041DF2C /* shoes1.jpg in Resources */,
+				B651C3C11CB9600B0041DF2C /* shoes3.jpg in Resources */,
 				B6BF75421CAE050D0002C477 /* Main.storyboard in Resources */,
+				B651C3C21CB9600B0041DF2C /* shoes2.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,10 +277,13 @@
 				2A8EF7811CB3506D001D8A26 /* ReleaseController.swift in Sources */,
 				2A9156301CB60A5F00B3570C /* Configuration.swift in Sources */,
 				2A9156281CB605E500B3570C /* Enum.swift in Sources */,
+				B69D23B61CB96FC200227272 /* NavigationController.swift in Sources */,
 				2A91562D1CB609C000B3570C /* HeaderView.swift in Sources */,
+				B651C3B71CB945560041DF2C /* NewsCell.swift in Sources */,
 				2AA95C221CB4AB7700B66C7E /* UIColor.swift in Sources */,
 				2A8EF7831CB350A4001D8A26 /* ShoeController.swift in Sources */,
 				2A8EF7871CB35122001D8A26 /* ClothingController.swift in Sources */,
+				B651C3BD1CB94A2B0041DF2C /* Article.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,7 +396,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Foamlife/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wavelinkllc.Foamlife;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -378,7 +409,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Foamlife/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wavelinkllc.Foamlife;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -23,7 +23,6 @@ class HeaderView: UIView {
         
         let textHeight = 20 as CGFloat
         let titleLabel = UILabel(frame: CGRect(x: frame.origin.x + frame.width + 10, y: ((textHeight * 1.5) / 2), width: frame.width - frame.height, height: textHeight * 1.5)) as UILabel
-        titleLabel.textColor = UIColor.roseColor()
         titleLabel.font = UIFont(name: Configuration.Default.font, size: textHeight)
         titleLabel.text = title
         self.addSubview(titleLabel)

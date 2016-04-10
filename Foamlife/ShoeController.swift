@@ -58,7 +58,7 @@ class ShoeController: UITableViewController, UINavigationBarDelegate {
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if (section == 0) {
             let view = UIView(frame: CGRectMake(0, 40, UIScreen.mainScreen().bounds.width, 90))
-            let header = HeaderView.init(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 90), title: " ", icon: String.fontAwesomeIconWithName(FontAwesome.Cogs), color: UIColor.darkBlueColor())
+            let header = HeaderView.init(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 90), title: " ", icon: String.fontAwesomeIconWithName(FontAwesome.Cogs), color: UIColor.nightColor())
             view.addSubview(header)
             return view
         } else {
