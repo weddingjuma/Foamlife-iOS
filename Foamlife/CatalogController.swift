@@ -10,13 +10,11 @@ import UIKit
 
 
 class CatalogController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UINavigationBarDelegate {
+
    
    @IBOutlet var collectionView: UICollectionView!
     
     let recipeImages = ["construction"]
-    
-    //, "creme_brelee", "egg_benedict", "full_breakfast", "green_tea", "ham_and_cheese_panini", "ham_and_egg_sandwich", "hamburger", "instant_noodle_with_egg.jpg", "japanese_noodle_with_pork", "mushroom_risotto", "noodle_with_bbq_pork", "starbucks_coffee", "thai_shrimp_cake", "vegetable_curry", "white_chocolate_donut"]
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +28,9 @@ class CatalogController: UIViewController, UICollectionViewDelegate, UICollectio
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
-
+        
+        self.view.backgroundColor = UIColor.goldColor()
+        
         collectionView.backgroundColor = UIColor.whiteColor()
         self.view.addSubview(collectionView)
     }
@@ -75,6 +75,7 @@ class CatalogController: UIViewController, UICollectionViewDelegate, UICollectio
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath)
+        
         cell.backgroundColor = UIColor.snowColor()
         let imageView = UIImageView(frame: CGRectMake(10, 10, cell.frame.width - 10, cell.frame.height - 10))
         let image = UIImage(named: "construction")
@@ -82,7 +83,7 @@ class CatalogController: UIViewController, UICollectionViewDelegate, UICollectio
         cell.backgroundView = UIView()
         cell.backgroundView!.addSubview(imageView)
      
-        return cell
+    return cell
     }
     
     override func didReceiveMemoryWarning() {

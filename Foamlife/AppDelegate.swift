@@ -26,6 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UINavigationBarDelegate {
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        
+        let flowLayout = UICollectionViewFlowLayout()
+        
        
         //setting the initial screen bounds of the view
         self.tabViewController1 = NewsController()

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A4EF4EA1CD0502D0045CDAD /* ReleaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4EF4E91CD0502D0045CDAD /* ReleaseCell.swift */; };
 		2A8EF77D1CB35013001D8A26 /* CatalogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8EF77C1CB35013001D8A26 /* CatalogController.swift */; };
 		2A8EF77F1CB3501E001D8A26 /* NewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8EF77E1CB3501E001D8A26 /* NewsController.swift */; };
 		2A8EF7811CB3506D001D8A26 /* ReleaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8EF7801CB3506D001D8A26 /* ReleaseController.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A4EF4E91CD0502D0045CDAD /* ReleaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReleaseCell.swift; sourceTree = "<group>"; };
 		2A8EF77C1CB35013001D8A26 /* CatalogController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalogController.swift; sourceTree = "<group>"; };
 		2A8EF77E1CB3501E001D8A26 /* NewsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsController.swift; sourceTree = "<group>"; };
 		2A8EF7801CB3506D001D8A26 /* ReleaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReleaseController.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			children = (
 				2AD2E4901CB864070036F493 /* CatalogCell.swift */,
 				B651C3B61CB945560041DF2C /* NewsCell.swift */,
+				2A4EF4E91CD0502D0045CDAD /* ReleaseCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 			files = (
 				2AD2E4911CB864070036F493 /* CatalogCell.swift in Sources */,
 				2A91562A1CB605E500B3570C /* FontAwesome.swift in Sources */,
+				2A4EF4EA1CD0502D0045CDAD /* ReleaseCell.swift in Sources */,
 				2A8EF7851CB3510F001D8A26 /* SettingsController.swift in Sources */,
 				2A8EF77D1CB35013001D8A26 /* CatalogController.swift in Sources */,
 				B6BF753B1CAE050D0002C477 /* AppDelegate.swift in Sources */,
