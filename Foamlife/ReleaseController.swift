@@ -122,7 +122,12 @@ class ReleaseController: UITableViewController, UINavigationBarDelegate {
         func positionForBar(bar: UIBarPositioning!) -> UIBarPosition {
             return UIBarPosition.TopAttached
         }
-        
+    
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 3
+    }
+    
         override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             
             return releases.count
@@ -157,10 +162,7 @@ class ReleaseController: UITableViewController, UINavigationBarDelegate {
             super.didReceiveMemoryWarning()
             // Dispose of any resources that can be recreated.
         }
-        
-        override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-            return 3
-        }
+
     
         override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
             let view = UIView(frame: CGRectMake(0, 30, UIScreen.mainScreen().bounds.width, 64))

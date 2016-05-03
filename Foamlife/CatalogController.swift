@@ -9,51 +9,69 @@
 import UIKit
 
 
-class CatalogController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UINavigationBarDelegate {
-
-   
-   @IBOutlet var collectionView: UICollectionView!
+class CatalogController: UITableViewController, UINavigationBarDelegate {
     
-    let recipeImages = ["construction"]
-
+    private var catalogs: [Catalog] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 75, left: 20, bottom: 10, right: 20)
-        layout.itemSize = CGSize(width: 100, height: 100)
-        
-        collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        self.tableView.registerClass(CatalogCell.self, forCellReuseIdentifier: "CatalogCell")
         
         self.view.backgroundColor = UIColor.goldColor()
         
-        collectionView.backgroundColor = UIColor.whiteColor()
-        self.view.addSubview(collectionView)
+        self.catalogs.append(Catalog.init(JSONData: [
+            "id" : 1,
+            "displayImageUrl" : "shoes1.jpg",
+            "name" : "Foamposites",
+            "detail" : "'Wu-Tang'",
+            "price" : "$150.00"
+            ]))
+        
+        
+        self.catalogs.append(Catalog.init(JSONData: [
+            "id" : 2,
+            "displayImageUrl" : "shoes2.jpg",
+            "name" : "Nike Air Foamposite Pro",
+            "detail" : "'University Red'",
+            "price" : "$250.00"
+            ]))
+        
+        
+        self.catalogs.append(Catalog.init(JSONData: [
+            "id" : 3,
+            "displayImageUrl" : "shoes3.jpg",
+            "name" : "Nike Air Foamposite Pro",
+            "detail" : "'Pure Platinum'",
+            "price" : "$300.00"
+            ]))
+        
+        self.catalogs.append(Catalog.init(JSONData: [
+            "id" : 4,
+            "displayImageUrl" : "shoes4.jpg",
+            "name" : "Foamposites",
+            "detail" : "'Gold'",
+            "price" : "$150.00"
+            ]))
+    
+        
     }
     
     override func viewDidAppear(animated: Bool) {
         
-        // Create the navigation bar
+        
         let navigationBar = UINavigationBar(frame: CGRectMake(0, 20, self.view.frame.size.width, 44))
-        navigationBar.backgroundColor = UIColor.whiteColor()
+        navigationBar.barTintColor = UIColor.goldColor()
+        navigationBar.tintColor = UIColor.whiteColor()
+        navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: Configuration.Default.font, size: 15)!, NSForegroundColorAttributeName: UIColor.darkGoldColor()]
+        navigationBar.translucent = false
         navigationBar.delegate = self;
         
         let navigationItem = UINavigationItem()
         navigationItem.title = "CATALOG"
-        
-//        let leftButton = UIBarButtonItem(title: " ", style: UIBarButtonItemStyle.Plain, target: self, action: nil)
-//        leftButton.image = UIImage.fontAwesomeIconWithName(.List, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
-        
         let rightButton = UIBarButtonItem(title: " ", style: UIBarButtonItemStyle.Plain, target: self, action: nil)
         rightButton.image = UIImage.fontAwesomeIconWithName(.Gear, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
-        
-    //    navigationItem.leftBarButtonItem = leftButton
         navigationItem.rightBarButtonItem = rightButton
-        
         navigationBar.items = [navigationItem]
         
         self.view.addSubview(navigationBar)
@@ -63,34 +81,57 @@ class CatalogController: UIViewController, UICollectionViewDelegate, UICollectio
         return UIBarPosition.TopAttached
     }
     
-   func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        //#warning Incomplete method implementation -- Return the number of sections
-        return 1
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 0: return 2
+        case 1: return 4
+        case 2: return 1
+        default: return 0
+        }
+        //return catalogs.count
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 15
-    }
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("CatalogCell") as! CatalogCell
+        let catalog: Catalog = catalogs[indexPath.row]
+        
+        //cell.imageContainer.af_setImageWithURL(NSURL(string: post.profileImageUrl)!, placeholderImage: UIImage(named: "green_background.jpeg"))
+        
+        cell.displayImageView.image = UIImage(named: catalog.displayImageUrl)
+        cell.nameLabel.text = catalog.name
+        cell.detailLabel.text = catalog.detail
+        cell.priceLabel.text = catalog.price
 
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath)
+        return cell
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 75
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        cell.backgroundColor = UIColor.snowColor()
-        let imageView = UIImageView(frame: CGRectMake(10, 10, cell.frame.width - 10, cell.frame.height - 10))
-        let image = UIImage(named: "construction")
-        imageView.image = image
-        cell.backgroundView = UIView()
-        cell.backgroundView!.addSubview(imageView)
-     
-    return cell
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 3
+    }
+    
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView(frame: CGRectMake(0, 30, UIScreen.mainScreen().bounds.width, 64))
+        return view
+    }
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 64
+    }
+    
+    
 }
-
