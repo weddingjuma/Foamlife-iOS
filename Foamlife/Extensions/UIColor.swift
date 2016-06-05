@@ -18,11 +18,11 @@ extension UIColor {
     }
     
     class func goldColor() -> UIColor {
-        return UIColor(red:0.77, green:0.7, blue:0.35, alpha:1.0)
+        return UIColor(red:1.00, green:0.84, blue:0.34, alpha:1.0)
     }
     
     class func darkGoldColor() -> UIColor {
-        return UIColor(red:0.53, green:0.47, blue:0.18, alpha:1.0)
+        return UIColor(red:0.73, green:0.56, blue:0.00, alpha:1.0)
     }
     
     class func nightColor() -> UIColor {
