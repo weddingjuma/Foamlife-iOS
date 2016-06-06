@@ -28,13 +28,13 @@ class NewsCell: UITableViewCell {
         let smallTextFontSize = 12 as CGFloat
         let textWidth = UIScreen.mainScreen().bounds.width - displayImageSize - (postPadding * 2)
     
-        titleTextView = UITextView(frame: CGRectMake(postPadding, 0, textWidth, (bigTextFontSize * 2) + postPadding))
+        titleTextView = UITextView(frame: CGRectMake(postPadding, 0, textWidth, (bigTextFontSize * 2) + (postPadding * 2)))
         titleTextView.userInteractionEnabled = false
         titleTextView.font = UIFont(name: Configuration.Default.font, size: bigTextFontSize)
         titleTextView.textColor = UIColor.nightColor()
         self.addSubview(titleTextView)
         
-        contentTextView = UITextView(frame: CGRectMake(postPadding, titleTextView.frame.origin.y + titleTextView.frame.size.height + postPadding, textWidth, (mediumTextFontSize * 4)))
+        contentTextView = UITextView(frame: CGRectMake(postPadding, titleTextView.frame.origin.y + titleTextView.frame.size.height, textWidth, (mediumTextFontSize * 4)))
         contentTextView.userInteractionEnabled = false
         contentTextView .font = UIFont(name: "AppleSDGothicNeo-Light", size: mediumTextFontSize)
         contentTextView.textColor = UIColor.nightColor()

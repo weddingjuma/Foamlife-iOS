@@ -22,7 +22,7 @@ class NewsController: UITableViewController, UINavigationBarDelegate {
         
         self.articles.append(Article.init(JSONData: [
             "id" : 1,
-            "title" : "FIRST LOOK AT THE “WU-TANG” FOAMPOSITES",
+            "title" : "First Look At The “Wu-Tang” Foamposites",
             "content" : "The legendary Wu-Tang Clan may have one of the sought-after Nike collaborations in history – the yellow/black “Wu-Tang” Dunk High that surfaced back in 1999. Since th...",
             "displayImageUrl" : "shoes1.jpg",
             "sourceName" : "Sneakernews.com",
@@ -32,7 +32,7 @@ class NewsController: UITableViewController, UINavigationBarDelegate {
         
         self.articles.append(Article.init(JSONData: [
             "id" : 2,
-            "title" : "NIKE AIR FOAMPOSITE PRO “UNIVERSITY RED” RELEASES IN APRIL",
+            "title" : "Nike Air Foamposite Pro “University Red” Releases In April",
             "content" : "2016 started off in a huge way for the Nike Air Foamposite Pro with another “Yeezy” release, but things are about to heat up a bit with a much-requested colorway in the spo...",
             "displayImageUrl" : "shoes2.jpg",
             "sourceName" : "Sneakernews.com",
@@ -42,7 +42,7 @@ class NewsController: UITableViewController, UINavigationBarDelegate {
         
         self.articles.append(Article.init(JSONData: [
             "id" : 3,
-            "title" : "THE NIKE AIR FOAMPOSITE PRO “PURE PLATINUM” IS RELEASING SOONER THAN EXPECTED",
+            "title" : "The Nike Air Foamposite Pro “Pure Platinum” Is Releasing Sooner Than Expected",
             "content" : "Despite a few years between first and last releases, the trio of “Yeezy” inspired Foamposites is finally complete. While the sneaker has an official release date of March 1...",
             "displayImageUrl" : "shoes3.jpg",
             "sourceName" : "Sneakernews.com",
@@ -52,7 +52,7 @@ class NewsController: UITableViewController, UINavigationBarDelegate {
         
         self.articles.append(Article.init(JSONData: [
             "id" : 4,
-            "title" : "FIRST LOOK AT THE “WU-TANG” FOAMPOSITES",
+            "title" : "First Look At The “Wu-Tang” Foamposites",
             "content" : "The legendary Wu-Tang Clan may have one of the sought-after Nike collaborations in history – the yellow/black “Wu-Tang” Dunk High that surfaced back in 1999. Since th...",
             "displayImageUrl" : "shoes1.jpg",
             "sourceName" : "Sneakernews.com",
@@ -62,7 +62,7 @@ class NewsController: UITableViewController, UINavigationBarDelegate {
         
         self.articles.append(Article.init(JSONData: [
             "id" : 5,
-            "title" : "NIKE AIR FOAMPOSITE PRO “UNIVERSITY RED” RELEASES IN APRIL",
+            "title" : "Nike Air Foamposite Pro “University Red” Releases In April",
             "content" : "2016 started off in a huge way for the Nike Air Foamposite Pro with another “Yeezy” release, but things are about to heat up a bit with a much-requested colorway in the spo...",
             "displayImageUrl" : "shoes2.jpg",
             "sourceName" : "Sneakernews.com",

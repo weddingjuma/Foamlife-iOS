@@ -22,7 +22,7 @@ extension UIColor {
     }
     
     class func darkGoldColor() -> UIColor {
-        return UIColor(red:0.73, green:0.56, blue:0.00, alpha:1.0)
+        return UIColor(red:0.83, green:0.64, blue:0.00, alpha:1.0)
     }
     
     class func nightColor() -> UIColor {

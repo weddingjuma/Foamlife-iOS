@@ -53,14 +53,14 @@ class CatalogCell: UITableViewCell {
         displayImageView.image = UIImage(named: "construction.png")
         self.addSubview(displayImageView)
         
-        nameLabel = UILabel(frame: CGRectMake(postPadding + 65, postPadding + 2, textWidth, smallTextFontSize))
-        nameLabel.font = UIFont(name: Configuration.Default.font, size: smallTextFontSize)
-        nameLabel.textColor = UIColor.grayColor()
+        nameLabel = UILabel(frame: CGRectMake(postPadding + 65, postPadding + 2, textWidth, bigTextFontSize))
+        nameLabel.font = UIFont(name: Configuration.Default.font, size: bigTextFontSize)
+        nameLabel.textColor = UIColor.nightColor()
         self.addSubview(nameLabel)
         
-        detailLabel = UILabel(frame: CGRectMake(postPadding + 65, nameLabel.frame.origin.y + 8 + postPadding, textWidth, smallTextFontSize))
-        detailLabel.font = UIFont(name: Configuration.Default.font, size: smallTextFontSize)
-        detailLabel.textColor = UIColor.grayColor()
+        detailLabel = UILabel(frame: CGRectMake(postPadding + 65, nameLabel.frame.origin.y + 8 + postPadding, textWidth, mediumTextFontSize))
+        detailLabel.font = UIFont(name: "AppleSDGothicNeo-Light", size: mediumTextFontSize)
+        detailLabel.textColor = UIColor.nightColor()
         self.addSubview(detailLabel)
         
         priceLabel = UILabel(frame: CGRectMake(postPadding + 65, detailLabel.frame.origin.y + 8 + postPadding, displayImageSize, smallTextFontSize))
