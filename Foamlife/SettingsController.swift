@@ -8,7 +8,8 @@
 
 import UIKit
 
-class SettingsController:  UIViewController, UINavigationBarDelegate {
+class SettingsController:  UITableViewController, UINavigationBarDelegate {
+
     var bgImage: UIImageView?
     
     

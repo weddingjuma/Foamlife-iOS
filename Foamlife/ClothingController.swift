@@ -8,14 +8,17 @@
 
 import UIKit
 
-class ClothingController: UIViewController, UINavigationBarDelegate {
+class ClothingController: UITableViewController, UINavigationBarDelegate {
     var bgImage: UIImageView?
+    @IBOutlet weak var rightButton: UITableView!
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor.whiteColor()
+//        rightButton.delegate = self
+//        rightButton.dataSource = self
+        
 
         var image: UIImage = UIImage(named: "construction")!
         bgImage = UIImageView(image: image)
@@ -23,9 +26,9 @@ class ClothingController: UIViewController, UINavigationBarDelegate {
         self.view.addSubview(bgImage!)
         
         self.view.layer.insertSublayer(Configuration.Default.backgroundLayer(self.view.frame.size), atIndex: 0)
-    }
-    
-    override func viewDidAppear(animated: Bool) {
+//    }
+//    
+//    override func viewDidAppear(animated: Bool) {
         
         // Create the navigation bar
         let navigationBar = UINavigationBar(frame: CGRectMake(0, 20, self.view.frame.size.width, 44))
@@ -35,18 +38,28 @@ class ClothingController: UIViewController, UINavigationBarDelegate {
         let navigationItem = UINavigationItem()
         navigationItem.title = "CLOTHING"
 
-//        let leftButton = UIBarButtonItem(title: " ", style: UIBarButtonItemStyle.Plain, target: self, action: nil)
-//        leftButton.image = UIImage.fontAwesomeIconWithName(.List, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
-        let rightButton = UIBarButtonItem(title: " ", style: UIBarButtonItemStyle.Plain, target: self, action: nil)
-        rightButton.image = UIImage.fontAwesomeIconWithName(.Gear, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
 
-        //navigationItem.leftBarButtonItem = leftButton
-        navigationItem.rightBarButtonItem = rightButton
-
-        navigationBar.items = [navigationItem]
-
+//        let rightButton = UIBarButtonItem(title: " ", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(ClothingController.buttonClick))
+//        rightButton.image = UIImage.fontAwesomeIconWithName(.Gear, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
+//        navigationItem.rightBarButtonItem = rightButton
+//        navigationBar.items = [navigationItem]
+        
         self.view.addSubview(navigationBar)
     }
+    
+//    func buttonClick(){
+//        
+//        let alert = UIAlertView(title: "Choose", message: "Which_pill", delegate: self, cancelButtonTitle:"Red")
+//        alert.addButtonWithTitle("Blue")
+//        
+//        alert.show()
+//    }
+
+    func buttonClick() {
+       // _ = sender.view as? SettingsController
+       self.performSegueWithIdentifier("segue1", sender: nil)
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

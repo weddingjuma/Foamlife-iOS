@@ -111,7 +111,7 @@ class ReleaseController: UITableViewController, UINavigationBarDelegate {
             
             let navigationItem = UINavigationItem()
             navigationItem.title = "UPCOMING RELEASES"
-            let rightButton = UIBarButtonItem(title: " ", style: UIBarButtonItemStyle.Plain, target: self, action: nil)
+            let rightButton = UIBarButtonItem(title: " ", style: UIBarButtonItemStyle.Plain, target: self, action: "buttonClick:")
             rightButton.image = UIImage.fontAwesomeIconWithName(.Gear, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
             navigationItem.rightBarButtonItem = rightButton
             navigationBar.items = [navigationItem]

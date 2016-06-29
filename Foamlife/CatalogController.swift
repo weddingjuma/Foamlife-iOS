@@ -69,7 +69,8 @@ class CatalogController: UITableViewController, UINavigationBarDelegate {
         
         let navigationItem = UINavigationItem()
         navigationItem.title = "CATALOG"
-        let rightButton = UIBarButtonItem(title: " ", style: UIBarButtonItemStyle.Plain, target: self, action: nil)
+        
+        let rightButton = UIBarButtonItem(title: " ", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(CatalogController.buttonClick))
         rightButton.image = UIImage.fontAwesomeIconWithName(.Gear, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
         navigationItem.rightBarButtonItem = rightButton
         navigationBar.items = [navigationItem]
@@ -77,6 +78,14 @@ class CatalogController: UITableViewController, UINavigationBarDelegate {
         self.view.addSubview(navigationBar)
     }
     
+    func buttonClick(sender: UIBarButtonItem){
+           // self.performSegueWithIdentifier("segue2", sender: self)
+//            let alert = UIAlertView(title: "Choose", message: "????", delegate: self, cancelButtonTitle:"1")
+//            alert.addButtonWithTitle("2")
+//    
+//            alert.show()
+        }
+
     func positionForBar(bar: UIBarPositioning!) -> UIBarPosition {
         return UIBarPosition.TopAttached
     }

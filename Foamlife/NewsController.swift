@@ -12,6 +12,7 @@ import UIKit
 class NewsController: UITableViewController, UINavigationBarDelegate {
     
     private var articles: [Article] = []
+    var rightButton: UIBarButtonItem?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,7 +84,6 @@ class NewsController: UITableViewController, UINavigationBarDelegate {
     
     override func viewDidAppear(animated: Bool) {
 
-        
         let navigationBar = UINavigationBar(frame: CGRectMake(0, 20, self.view.frame.size.width, 44))
         navigationBar.barTintColor = UIColor.goldColor()
         navigationBar.tintColor = UIColor.whiteColor()
@@ -93,12 +93,23 @@ class NewsController: UITableViewController, UINavigationBarDelegate {
         
         let navigationItem = UINavigationItem()
         navigationItem.title = "NEWS"
-        let rightButton = UIBarButtonItem(title: " ", style: UIBarButtonItemStyle.Plain, target: self, action: nil)
+        
+        let rightButton = UIBarButtonItem(title: " ", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(NewsController.buttonClick))
         rightButton.image = UIImage.fontAwesomeIconWithName(.Gear, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
         navigationItem.rightBarButtonItem = rightButton
         navigationBar.items = [navigationItem]
         
         self.view.addSubview(navigationBar)
+
+    }
+    
+    func buttonClick(sender: UIBarButtonItem) {
+//                let alert = UIAlertView(title: "Choose", message: "?????", delegate: self, cancelButtonTitle:"1")
+//                alert.addButtonWithTitle("2")
+//        
+//                alert.show()
+    // rightButtonItem = sender.view as? SettingsController
+       performSegueWithIdentifier("segue1", sender: self)
     }
     
     func positionForBar(bar: UIBarPositioning!) -> UIBarPosition {
