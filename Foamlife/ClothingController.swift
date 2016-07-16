@@ -1,65 +1,61 @@
 //
 //  ClothingController.swift
-//  Foamlife
+//  FoamlifeApp
 //
-//  Created by Danielle Williams on 4/4/16.
-//  Copyright © 2016 Wave Link, LLC. All rights reserved.
+//  Created by Danielle Williams on 7/15/16.
+//  Copyright © 2016 WavelinkLLC. All rights reserved.
 //
 
 import UIKit
 
-class ClothingController: UITableViewController, UINavigationBarDelegate {
-    var bgImage: UIImageView?
-    @IBOutlet weak var rightButton: UITableView!
-
+class ClothingController: UITableViewController {
+     var bgImage: UIImageView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        //self.view.backgroundColor = UIColor.goldColor()
         
-        self.view.backgroundColor = UIColor.whiteColor()
-//        rightButton.delegate = self
-//        rightButton.dataSource = self
-        
-
         var image: UIImage = UIImage(named: "construction")!
         bgImage = UIImageView(image: image)
         bgImage!.frame = CGRectMake(50,150,250,250)
         self.view.addSubview(bgImage!)
         
+        tableView.tableFooterView = UIView()
         self.view.layer.insertSublayer(Configuration.Default.backgroundLayer(self.view.frame.size), atIndex: 0)
-//    }
-//    
-//    override func viewDidAppear(animated: Bool) {
+
         
-        // Create the navigation bar
-        let navigationBar = UINavigationBar(frame: CGRectMake(0, 20, self.view.frame.size.width, 44))
-        navigationBar.backgroundColor = UIColor.whiteColor()
-        navigationBar.delegate = self;
+        let navigationBar = UINavigationBar(frame: CGRectMake(0, -20, self.view.frame.size.width, 60))
+        navigationBar.barTintColor = UIColor.goldColor()
+        navigationBar.tintColor = UIColor.whiteColor()
+        navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: Configuration.Default.font, size: 15)!, NSForegroundColorAttributeName: UIColor.darkGoldColor()]
         
         let navigationItem = UINavigationItem()
         navigationItem.title = "CLOTHING"
-
-
-//        let rightButton = UIBarButtonItem(title: " ", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(ClothingController.buttonClick))
-//        rightButton.image = UIImage.fontAwesomeIconWithName(.Gear, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
-//        navigationItem.rightBarButtonItem = rightButton
-//        navigationBar.items = [navigationItem]
         
+        let rightAddBarButtonItem:UIBarButtonItem = UIBarButtonItem(title: " ", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(ClothingController.addTapped))
+        rightAddBarButtonItem.image = UIImage.fontAwesomeIconWithName(.Gear, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
+        
+        navigationItem.setRightBarButtonItems([rightAddBarButtonItem], animated: true)
+        navigationBar.items = [navigationItem]
         self.view.addSubview(navigationBar)
+        
+        self.tabBarController?.tabBar.tintColor  = UIColor.goldColor()
+        self.tabBarController?.tabBar.barTintColor = UIColor.nightColor()
     }
     
-//    func buttonClick(){
-//        
-//        let alert = UIAlertView(title: "Choose", message: "Which_pill", delegate: self, cancelButtonTitle:"Red")
-//        alert.addButtonWithTitle("Blue")
-//        
-//        alert.show()
-//    }
-
-    func buttonClick() {
-       // _ = sender.view as? SettingsController
-       self.performSegueWithIdentifier("segue1", sender: nil)
+    func addTapped (sender:UIButton) {
+        performSegueWithIdentifier("segue5", sender: self)
     }
-
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        // Initialize Tab Bar Item
+        tabBarItem = UITabBarItem(title: " ", image: nil, tag: 4)
+        tabBarItem.image = UIImage.fontAwesomeIconWithName(.Bullhorn, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
+        
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -68,3 +64,4 @@ class ClothingController: UITableViewController, UINavigationBarDelegate {
     
     
 }
+

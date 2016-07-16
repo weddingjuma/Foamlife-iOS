@@ -1,24 +1,42 @@
 //
-//  SecondViewController.swift
-//  Foamlife
+//  CatalogController.swift
+//  FoamlifeApp
 //
-//  Created by Kelvin Graddick on 3/31/16.
-//  Copyright © 2016 Wave Link, LLC. All rights reserved.
+//  Created by Danielle Williams on 7/14/16.
+//  Copyright © 2016 WavelinkLLC. All rights reserved.
 //
 
 import UIKit
 
-
-class CatalogController: UITableViewController, UINavigationBarDelegate {
-    
+class CatalogController: UITableViewController {
     private var catalogs: [Catalog] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.tableView.registerClass(CatalogCell.self, forCellReuseIdentifier: "CatalogCell")
-        
+        // Do any additional setup after loading the view, typically from a nib.
         self.view.backgroundColor = UIColor.goldColor()
+        tableView.tableFooterView = UIView()
+        tableView.registerClass(CatalogCell.self, forCellReuseIdentifier: "CatalogCell")
+        
+        let navigationBar = UINavigationBar(frame: CGRectMake(0, -20, self.view.frame.size.width, 60))
+        navigationBar.barTintColor = UIColor.goldColor()
+        navigationBar.tintColor = UIColor.whiteColor()
+        navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: Configuration.Default.font, size: 15)!, NSForegroundColorAttributeName: UIColor.darkGoldColor()]
+        
+        let navigationItem = UINavigationItem()
+        navigationItem.title = "CATALOG"
+        
+        let rightAddBarButtonItem:UIBarButtonItem = UIBarButtonItem(title: " ", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(CatalogController.addTapped))
+        rightAddBarButtonItem.image = UIImage.fontAwesomeIconWithName(.Gear, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
+        
+        navigationItem.setRightBarButtonItems([rightAddBarButtonItem], animated: true)
+        
+        navigationBar.items = [navigationItem]
+        
+        self.view.addSubview(navigationBar)
+        
+        self.tabBarController?.tabBar.tintColor  = UIColor.goldColor()
+        self.tabBarController?.tabBar.barTintColor = UIColor.nightColor()
         
         self.catalogs.append(Catalog.init(JSONData: [
             "id" : 1,
@@ -53,81 +71,56 @@ class CatalogController: UITableViewController, UINavigationBarDelegate {
             "detail" : "'Gold'",
             "price" : "$150.00"
             ]))
-    
         
     }
     
-    override func viewDidAppear(animated: Bool) {
-        
-        
-        let navigationBar = UINavigationBar(frame: CGRectMake(0, 20, self.view.frame.size.width, 44))
-        navigationBar.barTintColor = UIColor.goldColor()
-        navigationBar.tintColor = UIColor.whiteColor()
-        navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: Configuration.Default.font, size: 15)!, NSForegroundColorAttributeName: UIColor.darkGoldColor()]
-        navigationBar.translucent = false
-        navigationBar.delegate = self;
-        
-        let navigationItem = UINavigationItem()
-        navigationItem.title = "CATALOG"
-        
-        let rightButton = UIBarButtonItem(title: " ", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(CatalogController.buttonClick))
-        rightButton.image = UIImage.fontAwesomeIconWithName(.Gear, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
-        navigationItem.rightBarButtonItem = rightButton
-        navigationBar.items = [navigationItem]
-        
-        self.view.addSubview(navigationBar)
+    func addTapped (sender:UIButton) {
+        // print("add pressed")
+        performSegueWithIdentifier("segue2", sender: self)
     }
     
-    func buttonClick(sender: UIBarButtonItem){
-           // self.performSegueWithIdentifier("segue2", sender: self)
-//            let alert = UIAlertView(title: "Choose", message: "????", delegate: self, cancelButtonTitle:"1")
-//            alert.addButtonWithTitle("2")
-//    
-//            alert.show()
-        }
-
-    func positionForBar(bar: UIBarPositioning!) -> UIBarPosition {
-        return UIBarPosition.TopAttached
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        // Initialize Tab Bar Item
+        tabBarItem = UITabBarItem(title: " ", image: nil, tag: 1)
+        tabBarItem.image = UIImage.fontAwesomeIconWithName(.ShoppingCart, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
+        
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0: return 2
-        case 1: return 4
-        case 2: return 1
-        default: return 0
+            switch section {
+            case 0: return 2
+            case 1: return 4
+            case 2: return 1
+            default: return 0
+            }
+            //return catalogs.count
         }
-        //return catalogs.count
-    }
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("CatalogCell") as! CatalogCell
-        let catalog: Catalog = catalogs[indexPath.row]
         
-        //cell.imageContainer.af_setImageWithURL(NSURL(string: post.profileImageUrl)!, placeholderImage: UIImage(named: "green_background.jpeg"))
+        override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCellWithIdentifier("CatalogCell") as! CatalogCell
+            let catalog: Catalog = catalogs[indexPath.row]
+            
+            //cell.imageContainer.af_setImageWithURL(NSURL(string: post.profileImageUrl)!, placeholderImage: UIImage(named: "green_background.jpeg"))
+            
+            cell.displayImageView.image = UIImage(named: catalog.displayImageUrl)
+            cell.nameLabel.text = catalog.name
+            cell.detailLabel.text = catalog.detail
+            cell.priceLabel.text = catalog.price
+            
+            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+            
+            return cell
+        }
         
-        cell.displayImageView.image = UIImage(named: catalog.displayImageUrl)
-        cell.nameLabel.text = catalog.name
-        cell.detailLabel.text = catalog.detail
-        cell.priceLabel.text = catalog.price
-
-        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+            return 75
+        }
         
-        return cell
-    }
-    
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 75
-    }
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+        override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+            
+        }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 3
@@ -138,9 +131,12 @@ class CatalogController: UITableViewController, UINavigationBarDelegate {
         return view
     }
     
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 64
-    }
-    
-    
+//    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 64
+//    }
+        override func didReceiveMemoryWarning() {
+            super.didReceiveMemoryWarning()
+            // Dispose of any resources that can be recreated.
+        }
+        
 }

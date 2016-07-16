@@ -1,78 +1,22 @@
 //
 //  AppDelegate.swift
-//  Foamlife
+//  FoamlifeApp
 //
-//  Created by Kelvin Graddick on 3/31/16.
-//  Copyright © 2016 Wave Link, LLC. All rights reserved.
+//  Created by Danielle Williams on 7/14/16.
+//  Copyright © 2016 WavelinkLLC. All rights reserved.
 //
 
 import UIKit
 
-
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UINavigationBarDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
-    var tabViewController1 : NewsController?
-    var tabViewController2 : CatalogController?
-    var tabViewController3 : ReleaseController?
-    var tabViewController4 : ShoeController?
-    var tabViewController5 : ClothingController?
-    
+
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        
-        UIApplication.sharedApplication().statusBarStyle = .LightContent
-        
-        window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        
-        let flowLayout = UICollectionViewFlowLayout()
-        
-       
-        //setting the initial screen bounds of the view
-        self.tabViewController1 = NewsController()
-        self.tabViewController2 = CatalogController()
-        self.tabViewController3 = ReleaseController()
-        self.tabViewController4 = ShoeController()
-        self.tabViewController5 = ClothingController()
-        
-        var nav = UINavigationController()
-        var tabBarController = UITabBarController()
 
-        tabBarController.viewControllers = [tabViewController1! , tabViewController2!, tabViewController3! , tabViewController4!, tabViewController5!]
-        tabBarController.tabBar.tintColor = UIColor.goldColor()
-        tabBarController.tabBar.barTintColor = UIColor.nightColor()
-        tabBarController.tabBar.backgroundColor = UIColor.whiteColor()
-        
-        //adding all five views to the TabBarView
-        var item1 = UITabBarItem(title: " ", image: nil, tag: 0)
-        item1.image = UIImage.fontAwesomeIconWithName(.Bullhorn, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
-        var item2 = UITabBarItem(title: " ", image: nil, tag: 1)
-        item2.image = UIImage.fontAwesomeIconWithName(.ShoppingCart, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
-        var item3 = UITabBarItem(title: " ", image: nil, tag: 2)
-        item3.image = UIImage.fontAwesomeIconWithName(.Calendar, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
-        var item4 = UITabBarItem(title: " ", image: nil, tag: 3)
-        item4.image = UIImage.fontAwesomeIconWithName(.Star, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
-        var item5 = UITabBarItem(title: " ", image: nil, tag: 4)
-        item5.image = UIImage.fontAwesomeIconWithName(.ShoppingBag, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
-
-        item1.imageInsets = UIEdgeInsetsMake(4, 0, -4, 0);
-        item2.imageInsets = UIEdgeInsetsMake(4, 0, -4, 0);
-        item3.imageInsets = UIEdgeInsetsMake(4, 0, -4, 0);
-        item4.imageInsets = UIEdgeInsetsMake(4, 0, -4, 0);
-        item5.imageInsets = UIEdgeInsetsMake(4, 0, -4, 0);
-        
-        tabViewController1?.tabBarItem = item1
-        tabViewController2?.tabBarItem = item2
-        tabViewController3?.tabBarItem = item3
-        tabViewController4?.tabBarItem = item4
-        tabViewController5?.tabBarItem = item5
-        
-        self.window?.rootViewController = tabBarController
-        window?.makeKeyAndVisible()
-        
-    return true
+        return true
     }
 
     func applicationWillResignActive(application: UIApplication) {

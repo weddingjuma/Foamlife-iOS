@@ -1,25 +1,42 @@
-
 //
-//  NewsController.swift
-//  Foamlife
+//  ViewController.swift
+//  FoamlifeApp
 //
-//  Created by Kelvin Graddick on 3/31/16.
-//  Copyright © 2016 Wave Link, LLC. All rights reserved.
+//  Created by Danielle Williams on 7/14/16.
+//  Copyright © 2016 WavelinkLLC. All rights reserved.
 //
 
 import UIKit
 
-class NewsController: UITableViewController, UINavigationBarDelegate {
-    
-    private var articles: [Article] = []
-    var rightButton: UIBarButtonItem?
+class NewsController: UITableViewController {
+     private var articles: [Article] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.tableView.registerClass(NewsCell.self, forCellReuseIdentifier: "NewsCell")
-        
+        // Do any additional setup after loading the view, typically from a nib.
         self.view.backgroundColor = UIColor.goldColor()
+        tableView.tableFooterView = UIView()
+        tableView.registerClass(NewsCell.self, forCellReuseIdentifier: "NewsCell")
+        
+       let navigationBar = UINavigationBar(frame: CGRectMake(0, -20, self.view.frame.size.width, 60))
+        navigationBar.barTintColor = UIColor.goldColor()
+        navigationBar.tintColor = UIColor.whiteColor()
+        navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: Configuration.Default.font, size: 15)!, NSForegroundColorAttributeName: UIColor.darkGoldColor()]
+
+        let navigationItem = UINavigationItem()
+        navigationItem.title = "NEWS"
+        
+        let rightAddBarButtonItem:UIBarButtonItem = UIBarButtonItem(title: " ", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(NewsController.addTapped))
+        rightAddBarButtonItem.image = UIImage.fontAwesomeIconWithName(.Gear, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
+        
+        navigationItem.setRightBarButtonItems([rightAddBarButtonItem], animated: true)
+
+        navigationBar.items = [navigationItem]
+        
+        self.view.addSubview(navigationBar)
+        
+        self.tabBarController?.tabBar.tintColor  = UIColor.goldColor()
+        self.tabBarController?.tabBar.barTintColor = UIColor.nightColor()
         
         self.articles.append(Article.init(JSONData: [
             "id" : 1,
@@ -29,7 +46,7 @@ class NewsController: UITableViewController, UINavigationBarDelegate {
             "sourceName" : "Sneakernews.com",
             "sourceImageUrl" : "http://unihouse.anu.edu.au/wp-content/uploads/2013/11/restaurant.jpeg",
             "timeStamp" : "2 hours ago"
-        ]))
+            ]))
         
         self.articles.append(Article.init(JSONData: [
             "id" : 2,
@@ -39,7 +56,7 @@ class NewsController: UITableViewController, UINavigationBarDelegate {
             "sourceName" : "Sneakernews.com",
             "sourceImageUrl" : "http://unihouse.anu.edu.au/wp-content/uploads/2013/11/restaurant.jpeg",
             "timeStamp" : "6 days ago"
-        ]))
+            ]))
         
         self.articles.append(Article.init(JSONData: [
             "id" : 3,
@@ -49,7 +66,7 @@ class NewsController: UITableViewController, UINavigationBarDelegate {
             "sourceName" : "Sneakernews.com",
             "sourceImageUrl" : "http://unihouse.anu.edu.au/wp-content/uploads/2013/11/restaurant.jpeg",
             "timeStamp" : "1 week ago"
-        ]))
+            ]))
         
         self.articles.append(Article.init(JSONData: [
             "id" : 4,
@@ -59,7 +76,7 @@ class NewsController: UITableViewController, UINavigationBarDelegate {
             "sourceName" : "Sneakernews.com",
             "sourceImageUrl" : "http://unihouse.anu.edu.au/wp-content/uploads/2013/11/restaurant.jpeg",
             "timeStamp" : "2 hours ago"
-        ]))
+            ]))
         
         self.articles.append(Article.init(JSONData: [
             "id" : 5,
@@ -69,7 +86,7 @@ class NewsController: UITableViewController, UINavigationBarDelegate {
             "sourceName" : "Sneakernews.com",
             "sourceImageUrl" : "http://unihouse.anu.edu.au/wp-content/uploads/2013/11/restaurant.jpeg",
             "timeStamp" : "6 days ago"
-        ]))
+            ]))
         
         self.articles.append(Article.init(JSONData: [
             "id" : 6,
@@ -79,41 +96,22 @@ class NewsController: UITableViewController, UINavigationBarDelegate {
             "sourceName" : "Sneakernews.com",
             "sourceImageUrl" : "http://unihouse.anu.edu.au/wp-content/uploads/2013/11/restaurant.jpeg",
             "timeStamp" : "1 week ago"
-        ]))
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-
-        let navigationBar = UINavigationBar(frame: CGRectMake(0, 20, self.view.frame.size.width, 44))
-        navigationBar.barTintColor = UIColor.goldColor()
-        navigationBar.tintColor = UIColor.whiteColor()
-        navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: Configuration.Default.font, size: 15)!, NSForegroundColorAttributeName: UIColor.darkGoldColor()]
-        navigationBar.translucent = false
-        navigationBar.delegate = self;
-        
-        let navigationItem = UINavigationItem()
-        navigationItem.title = "NEWS"
-        
-        let rightButton = UIBarButtonItem(title: " ", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(NewsController.buttonClick))
-        rightButton.image = UIImage.fontAwesomeIconWithName(.Gear, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
-        navigationItem.rightBarButtonItem = rightButton
-        navigationBar.items = [navigationItem]
-        
-        self.view.addSubview(navigationBar)
+            ]))
 
     }
     
-    func buttonClick(sender: UIBarButtonItem) {
-//                let alert = UIAlertView(title: "Choose", message: "?????", delegate: self, cancelButtonTitle:"1")
-//                alert.addButtonWithTitle("2")
-//        
-//                alert.show()
-    // rightButtonItem = sender.view as? SettingsController
-       performSegueWithIdentifier("segue1", sender: self)
+    func addTapped (sender:UIButton) {
+       // print("add pressed")
+          performSegueWithIdentifier("segue1", sender: self)
     }
     
-    func positionForBar(bar: UIBarPositioning!) -> UIBarPosition {
-        return UIBarPosition.TopAttached
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        // Initialize Tab Bar Item
+        tabBarItem = UITabBarItem(title: " ", image: nil, tag: 0)
+        tabBarItem.image = UIImage.fontAwesomeIconWithName(.Bullhorn, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
+        
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -135,31 +133,31 @@ class NewsController: UITableViewController, UINavigationBarDelegate {
         return cell
     }
     
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+            return 1
+        }
+    
+        override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+            let view = UIView(frame: CGRectMake(0, 10 , UIScreen.mainScreen().bounds.width, 64))
+            return view
+        }
+    
+//        override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 10
+//    }
+    
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 145
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-       
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = UIView(frame: CGRectMake(0, 30, UIScreen.mainScreen().bounds.width, 64))
-        return view
-    }
-    
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 64
-    }
-
 }
 
