@@ -26,10 +26,10 @@ class NewsController: UITableViewController {
         let navigationItem = UINavigationItem()
         navigationItem.title = "NEWS"
         
-        let rightAddBarButtonItem:UIBarButtonItem = UIBarButtonItem(title: " ", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(NewsController.addTapped))
-        rightAddBarButtonItem.image = UIImage.fontAwesomeIconWithName(.Gear, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
-        
-        navigationItem.setRightBarButtonItems([rightAddBarButtonItem], animated: true)
+//        let rightAddBarButtonItem:UIBarButtonItem = UIBarButtonItem(title: " ", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(NewsController.addTapped))
+//        rightAddBarButtonItem.image = UIImage.fontAwesomeIconWithName(.Gear, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
+//        
+//        navigationItem.setRightBarButtonItems([rightAddBarButtonItem], animated: true)
 
         navigationBar.items = [navigationItem]
         
@@ -100,10 +100,10 @@ class NewsController: UITableViewController {
 
     }
     
-    func addTapped (sender:UIButton) {
-       // print("add pressed")
-          performSegueWithIdentifier("segue1", sender: self)
-    }
+//    func addTapped (sender:UIButton) {
+//       // print("add pressed")
+//          performSegueWithIdentifier("segue1", sender: self)
+//    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

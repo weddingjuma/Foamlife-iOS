@@ -26,12 +26,12 @@ class ShoeController: UITableViewController {
         navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: Configuration.Default.font, size: 15)!, NSForegroundColorAttributeName: UIColor.darkGoldColor()]
         
         let navigationItem = UINavigationItem()
-        navigationItem.title = "SHOE COLLECTION"
+        navigationItem.title = "FAVORITES"
         
-        let rightAddBarButtonItem:UIBarButtonItem = UIBarButtonItem(title: " ", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(ShoeController.addTapped))
-        rightAddBarButtonItem.image = UIImage.fontAwesomeIconWithName(.Gear, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
-        
-        navigationItem.setRightBarButtonItems([rightAddBarButtonItem], animated: true)
+//        let rightAddBarButtonItem:UIBarButtonItem = UIBarButtonItem(title: " ", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(ShoeController.addTapped))
+//        rightAddBarButtonItem.image = UIImage.fontAwesomeIconWithName(.Gear, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
+//        
+//        navigationItem.setRightBarButtonItems([rightAddBarButtonItem], animated: true)
         
         navigationBar.items = [navigationItem]
         
@@ -119,10 +119,10 @@ class ShoeController: UITableViewController {
         
     }
     
-    func addTapped (sender:UIButton) {
-        // print("add pressed")
-        performSegueWithIdentifier("segue4", sender: self)
-    }
+//    func addTapped (sender:UIButton) {
+//        // print("add pressed")
+//        performSegueWithIdentifier("segue4", sender: self)
+//    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

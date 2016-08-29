@@ -39,10 +39,19 @@ class SettingsController: UITableViewController {
         self.tabBarController?.tabBar.tintColor  = UIColor.goldColor()
         self.tabBarController?.tabBar.barTintColor = UIColor.nightColor()
         
-        self.view.layer.insertSublayer(Configuration.Default.backgroundLayer(self.view.frame.size), atIndex: 0)
+    //    self.view.layer.insertSublayer(Configuration.Default.backgroundLayer(self.view.frame.size), atIndex: 0)
 
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        // Initialize Tab Bar Item
+        tabBarItem = UITabBarItem(title: " ", image: nil, tag: 0)
+        tabBarItem.image = UIImage.fontAwesomeIconWithName(.Gear, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
+        
+    }
+
 //    func addTapped (sender:UIButton) {
 //       performSegueWithIdentifier("back1", sender: self)
 //    }
@@ -52,16 +61,21 @@ class SettingsController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if (section == 0) {
-            let view = UIView(frame: CGRectMake(0, 40, UIScreen.mainScreen().bounds.width, 90))
-            let header = HeaderView.init(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 90), title: " ", icon: String.fontAwesomeIconWithName(FontAwesome.Cogs), color: UIColor.nightColor())
-            view.addSubview(header)
-            return view
-        } else {
-            let view = UIView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 35))
-            return view
-        }
+        let view = UIView(frame: CGRectMake(0, 10 , UIScreen.mainScreen().bounds.width, 64))
+        return view
     }
+    
+//    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        if (section == 0) {
+//            let view = UIView(frame: CGRectMake(0, 40, UIScreen.mainScreen().bounds.width, 90))
+//            let header = HeaderView.init(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 90), title: " ", icon: String.fontAwesomeIconWithName(FontAwesome.Cogs), color: UIColor.nightColor())
+//            view.addSubview(header)
+//            return view
+//        } else {
+//            let view = UIView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 35))
+//            return view
+//        }
+//    }
     
     //    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
     //        if (section == 0) {
